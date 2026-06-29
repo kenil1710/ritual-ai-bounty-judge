@@ -1,0 +1,38 @@
+@import "tailwindcss";
+
+/*
+ * Ritual brand tokens — editorial, warm, light. Exposed both as CSS variables
+ * (var(--color-brand) …) and as Tailwind utilities (bg-brand, text-ink,
+ * border-line, font-serif …) so the whole app can pull from one source.
+ */
+@theme {
+  --color-cream: #f4f0e9; /* page background — warm cream */
+  --color-surface: #ffffff; /* cards / raised surfaces */
+  --color-line: #e5dfd3; /* soft warm border */
+  --color-ink: #1b1917; /* primary text — warm near-black */
+  --color-muted: #6b645c; /* secondary text — warm grey */
+  --color-brand: #1a6b4a; /* brand green — headings, primary actions */
+  --color-brand-bright: #5fe3a1; /* bright green — hovers, dots, highlights */
+  --color-brick: #b4452f; /* muted brick red — errors / alerts */
+
+  --radius-card: 14px;
+}
+
+/* Font-family vars are produced by next/font (see app/layout.tsx). `inline`
+   keeps the generated utilities pointing straight at the loaded font vars. */
+@theme inline {
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-fraunces);
+  --font-mono: var(--font-jetbrains-mono);
+}
+
+body {
+  background-color: var(--color-cream);
+  color: var(--color-ink);
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  /* Fraunces (loaded with its opsz axis) responds to this on large display
+     text; non-variable fonts simply ignore it. */
+  font-optical-sizing: auto;
+}
